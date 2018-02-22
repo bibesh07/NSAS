@@ -21,21 +21,28 @@
     }
 
     .grow:hover {
-        transform:scale(1.4);
+        transform:scale(1.1);
     }
+
+
 </style>
 <head>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.5.0/typeit.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.5.0/typeit.min.js"></script>
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script type="text/javascript" src="~/js/vanilla-tilt.js"></script>
 </head>
 
-<nav class="navbar navbar-expand-lg">
-    <a transform: translateZ(20px) transform-style: preserve-3d class="navbar-brand" id="brand" style="font-size:250%" >NSAS</a>
+<nav class="navbar navbar-expand-lg fixed-top " style="border-left: transparent; background:azure;opacity:.7">
+    <a transform: translateZ(20px) transform-style: preserve-3d class="navbar-brand" id="brand" style="font-size:350%; font-family:Garamond" >NSAS</a>
+    <a class="nav-link" href="google.com">Who are We?</a>
+    <a class="nav-link" href="google.com">What we Do?</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -53,12 +60,64 @@
 <body>
     <div class="parallex" style="background-image: url('/images/pexels-photo-291732.jpeg');">
         <div style=" line-height:5">
+            @for (int i = 0; i < 20; i++)
+            {
             <div class="col-xs-12" style="height:10px;"></div>
+            }
             <span id="Typewriter" style="font-family:Garamond;font-size:330%;color:crimson;">&nbsp;&nbsp;&nbsp;Hello!</span>
-            <input class="form-control col-md-5 grow" style="left:350; height:75; bottom:55;font-size:xx-large;" placeholder="Enter your Wnumber" /> 
+            <!--form class="form-inline">
+                <input class="form-control col-md-5 grow" style="left:350; height:75; bottom:55;font-size:xx-large;" placeholder="Enter your Wnumber" />
+                <button style="position:absolute;" class="btn btn-info"> Register </button>
+            <form>-->
+            <div class="row">
+                <div class="col-sm"></div>
+                <div class="col-9">
+                    <form class="form-inline">
+                        <input type="text" style="height:75; font-size:45;" class="form-control grow col-md-7" id="wnumber" placeholder="Enter Wnumber"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-lg btn-primary mb-2 grow" style="margin-top:10;">Confirm Identity</button>
+                    </form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="alert alert-warning text-center"> First Time Users must verify their identity using their wnumber before they register</span>
+                </div>
+                <a href="#section2"><span></span>Scroll</a>
+            </div>
         </div>
     </div>
-    <div class="parallex" style="background-image: url('/images/switzerland-zermatt-mountains-snow.jpg');">
+
+    <div class="parallex" style="background-image: url('/images/swoyambhu.jpg');">
+        <div class="col-sm-5"></div>
+        <div class="row" data-aos="fade-right">
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/images/people-woman-coffee-meeting.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3" data-aos="fade-down">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/images/NsasLogo.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3" data-aos="fade-left">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/images/pexels-photo-461049.jpeg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
@@ -71,13 +130,15 @@
             .pause(1500)
             .delete(8)
             .type(' &#2344;&#2350;&#2360;&#2381;&#2340;&#2375;');
-        $(document).ready(function () {
-            console.log('ds');
-        });
+
 
         VanillaTilt.init(document.querySelector("#brand"), {
             max: 25,
             speed: 400,
+        });
+
+        AOS.init({
+            duration: 1500,
         });
     });
     
