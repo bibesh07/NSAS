@@ -5,6 +5,7 @@
     .parallex {
         /* Full height */
         height: 100%;
+        /* Create the parallax scrolling effect */
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
@@ -30,10 +31,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.5.0/typeit.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.5.0/typeit.min.js"></script>
+    <script type="text/javascript" src="~/js/vanilla-tilt.js"></script>
 </head>
 
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">NSAS</a>
+    <a transform: translateZ(20px) transform-style: preserve-3d class="navbar-brand" id="brand" style="font-size:250%" >NSAS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -61,14 +63,22 @@
 </body>
 
 <script>
-    new TypeIt('#Typewriter', {
-        speed: 350,
-    })
-        .type(' Welcome')
-        .pause(1500)
-        .delete(8)
-        .type(' &#2344;&#2350;&#2360;&#2381;&#2340;&#2375;');
     $(document).ready(function () {
-        console.log('ds');
+        new TypeIt('#Typewriter', {
+            speed: 350,
+        })
+            .type(' Welcome')
+            .pause(1500)
+            .delete(8)
+            .type(' &#2344;&#2350;&#2360;&#2381;&#2340;&#2375;');
+        $(document).ready(function () {
+            console.log('ds');
+        });
+
+        VanillaTilt.init(document.querySelector("#brand"), {
+            max: 25,
+            speed: 400,
+        });
     });
+    
 </script>
