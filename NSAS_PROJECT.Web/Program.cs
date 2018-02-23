@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using NSAS_PROJECT.Web.Data;
 using Microsoft.EntityFrameworkCore;
@@ -22,8 +15,7 @@ namespace NSAS_PROJECT.Web
             {
                 var context = scope.ServiceProvider.GetRequiredService<DataContext>();
                 context.Database.Migrate();
-                //Enable this after you seed data 
-                //DbInitilizer.SeedData(context);
+                DbInitializer.SeedData(context);
             }
             host.Run();
         }

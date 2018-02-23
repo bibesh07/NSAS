@@ -8,7 +8,7 @@ namespace NSAS_PROJECT.Web.Data
 {
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        public DataContext(DbContextOptions<DataContext> Options) : base(Options)
         {
         }
 

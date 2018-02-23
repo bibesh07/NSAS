@@ -17,7 +17,7 @@ namespace NSAS_PROJECT.Core.Features.Users
 
         public string Email { get; set; }
 
-        public string Gender { get; set; }
+        public string Gender { get; set; } 
 
         public Address Address { get; set; }
     }
