@@ -4,29 +4,29 @@
 <style>
     .parallex {
         /* Full height */
-        height: 100%;
+        overflow:hidden;
+        height: 125%;
         /* Create the parallax scrolling effect */
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
-    input::-webkit-input-placeholder {
+    #wnumber input::-webkit-input-placeholder {
         font-size: 35px;
         line-height: 3;
     }
 
     .grow {
-        transition: 2s !important;
-        transition: all 2s ease-in-out;
+        transition: 1.7s !important;
+        transition: all 2s ease-in-out !important;
     }
 
-        .grow:hover {
-            transition: 2s;
-            transform: scale(1.1);
-            transition-duration: 2s;
-        }
-
+    .grow:hover {
+        transition: 1.7s !important;
+        transform: scale(1.1) !important;
+        transition-duration: 1.7s !important;
+     }
 
 </style>
 <head>
@@ -43,12 +43,12 @@
 </head>
 
 <nav class="navbar navbar-expand-lg fixed-top ">
-    <a transform: translateZ(20px) transform-style: preserve-3d class="navbar-brand" id="brand" style="font-size:350%; font-family:Garamond" >NSAS</a>
+    <a transform: translateZ(20px) transform-style: preserve-3d class="btn navbar-brand scrolldown" id="brand" data-content="top" style="font-size:350%; font-family:Garamond" >NSAS</a>
     &nbsp;&nbsp;&nbsp;
-    <button class="btn btn-outline-info my-2 my-sm-0 scrolldown" data-content="whatwedo">What We DO?</button>&nbsp;&nbsp;&nbsp;
-    <button class="btn btn-outline-warning my-2 my-sm-0 scrolldown" data-content="aboutus">About Us</button>&nbsp;&nbsp;&nbsp;
-    <button class="btn btn-outline-danger my-2 my-sm-0 scrolldown" data-content="contactus">Contact Us</button>&nbsp;&nbsp;&nbsp;
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="btn btn-outline-info my-2 my-sm-0 scrolldown grow" data-content="whatwedo">What We DO?</button>&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-outline-warning my-2 my-sm-0 scrolldown grow" data-content="aboutus">About Us</button>&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-outline-danger my-2 my-sm-0 scrolldown grow" data-content="contactus">Contact Us</button>&nbsp;&nbsp;&nbsp;
+    <button class="navbar-toggler grow" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -62,13 +62,12 @@
 </nav>
 
 <body>
-
     <!--Simple Modal for Login-->
     <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                    <h5 class="modal-title grow" id="exampleModalLabel">Log In</h5>
                     <hr />
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -98,74 +97,101 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Log In</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="parallex" style="background-image: url('/images/pexels-photo-291732.jpeg');">
+    <div class="parallex" id="top" style="background-image: url('/images/pexels-photo-291732.jpeg');">
         <div style=" line-height:5">
             @for (int i = 0; i < 20; i++)
             {
             <div class="col-xs-12" style="height:10px;"></div>
             }
             <span id="Typewriter" style="font-family:Garamond;font-size:330%;color:crimson;">&nbsp;&nbsp;&nbsp;</span>
-            <!--form class="form-inline">
-                <input class="form-control col-md-5 grow" style="left:350; height:75; bottom:55;font-size:xx-large;" placeholder="Enter your Wnumber" />
-                <button style="position:absolute;" class="btn btn-info"> Register </button>
-            <form>-->
             <div class="row">
                 <div class="col-sm"></div>
                 <div class="col-9">
                     <form class="form-inline">
                         <input type="text" style="height:75; font-size:45;" class="form-control grow col-md-7" id="wnumber" placeholder="Enter Wnumber"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <button type="submit" class="btn btn-lg btn-primary mb-2 grow" style="margin-top:10;">Confirm Identity</button>
-                    </form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="alert alert-warning text-center"> First Time Users must verify their identity using their wnumber before they register</span>
+                    </form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="alert alert-warning text-center"> First Time Users must verify their identity using their wnumber before they register</span>
                 </div>
             </div>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
     </div>
 
     <!--What we do-->
-    <div class="parallex" id="whatwedo" style="background-image: url('/images/swoyambhu.jpg');">
-        <div class="col-sm-5"></div>
-        <div class="row" data-aos="fade-right">
-            <div class="col-sm-3">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="~/images/people-woman-coffee-meeting.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+    <div class="parallex" id="whatwedo" style="background-image: url('/images/buddha.jpg');">
+        <hr />
+        <br /><br /><br /><br />
+        <div class="row">
+            <div class="card grow" data-aos="fade-right" style="width: 20rem; left:70">
+                <img class="card-img-top" src="~/images/people-woman-coffee-meeting.jpg" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">Collaboration</h4> <hr />
+                    <p class="card-text"> &nbsp;&nbsp;<strong>NSAS</strong> has been collaborating with its member since its foundation to organize different festivites within the southeasten premises.</p>
                 </div>
             </div>
-            <div class="col-sm-3" data-aos="fade-down">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="~/images/NsasLogo.png" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3" data-aos="fade-left">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="~/images/pexels-photo-461049.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+            <div class="card grow" data-aos="fade-left" style="width: 20rem; left:170">
+                <img class="card-img-top" src="~/images/pexels-photo-461049.jpeg" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">Togetherness</h4> <hr />
+                    <p class="card-text">&nbsp;&nbsp;<strong>NSAS</strong> is all about togetherness. Far away from home, the cultural shock and diversity can sometimes be harsh</p>
                 </div>
             </div>
         </div>
+        <br />
+
+        <div class="row">
+            <div class="card grow" data-aos="slide-up" style="width: 20rem; left:72">
+                <img class="card-img-top" src="~/images/team_work.jpeg" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">Achievement</h4> <hr />
+                    <p class="card-text">&nbsp;&nbsp;<strong>NSAS</strong> is all about togetherness. Far away from the cultural shock and diversity can sometimes be harsh</p>
+                </div>
+            </div>
+            <div class="card grow" data-aos="slide-down" style="width: 20rem; left:170">
+                <img class="card-img-top" src="~/images/celebration.jpeg" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">Celebration</h4> <hr />
+                    <p class="card-text">&nbsp;&nbsp;<strong>Dashain</strong> Thihar or Holi, You name it not one of the cultures has been forgottn here. Each celebration is celebrated with passion</p>
+                </div>
+            </div>
+        </div>
+   </div>
+        <!--div class="card grow" style="width: 20rem; left:70">
+            <img class="card-img-top" src="~/images/pexels-photo-461049.jpeg" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Togetherness</h4> <hr />
+                <p class="card-text">NSAS is all about togetherness. Far away from the cultural shock and diversity can sometimes be harsh</p>
+            </div>
+        </!--div>
+        <div class="card grow" style="width: 20rem;">
+            <img class="card-img-top" src="~/images/success.jpg" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Togetherness</h4> <hr />
+                <p class="card-text">NSAS is all about togetherness. Far away from the cultural shock and diversity can sometimes be harsh</p>
+            </div>
+        </div>
+    </div>-->
+
+    <!--About Us-->
+    <div class="parallex" id="aboutus" style="background-image: url('/images/scene.jpeg');">
+
     </div>
+
+    <!--Contact Us-->
+    <div class="parallex" id="contactus" style="background-image: url('/images/swoyambhu.jpg');">
+
+    </div>
+
 
     <!--About US-->
 </body>
@@ -200,8 +226,9 @@
         $(document).scroll(function () {
             $('.navbar').css({
                 background: $(this).scrollTop() > 250 ? "azure" : "transparent",
-                opacity: $(this).scrollTop() > 250 ? 0.96 : "1",
-                transition: $(this).scrollTop() > 250 ? "2s": "1s",
+                opacity: $(this).scrollTop() > 250 ? ".86" : "1",
+                transition: $(this).scrollTop() > 250 ? "2s" : "1s",
+                height: $(this).scrollTop() > 250 ? "6%" : "7%",
              });
         });
     });    
