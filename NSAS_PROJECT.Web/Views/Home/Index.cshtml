@@ -17,12 +17,15 @@
     }
 
     .grow {
+        transition: 2s !important;
         transition: all 2s ease-in-out;
     }
 
-    .grow:hover {
-        transform:scale(1.1);
-    }
+        .grow:hover {
+            transition: 2s;
+            transform: scale(1.1);
+            transition-duration: 2s;
+        }
 
 
 </style>
@@ -39,32 +42,76 @@
     <script type="text/javascript" src="~/js/vanilla-tilt.js"></script>
 </head>
 
-<nav class="navbar navbar-expand-lg fixed-top " style="border-left: transparent; background:azure;opacity:.7">
+<nav class="navbar navbar-expand-lg fixed-top ">
     <a transform: translateZ(20px) transform-style: preserve-3d class="navbar-brand" id="brand" style="font-size:350%; font-family:Garamond" >NSAS</a>
-    <a class="nav-link" href="google.com">Who are We?</a>
-    <a class="nav-link" href="google.com">What we Do?</a>
+    &nbsp;&nbsp;&nbsp;
+    <button class="btn btn-outline-info my-2 my-sm-0 scrolldown" data-content="whatwedo">What We DO?</button>&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-outline-warning my-2 my-sm-0 scrolldown" data-content="aboutus">About Us</button>&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-outline-danger my-2 my-sm-0 scrolldown" data-content="contactus">Contact Us</button>&nbsp;&nbsp;&nbsp;
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <!--Enter something for left alignment-->
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log In</button>
-        </form>
+        <div class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#loginmodal" type="submit">Log In</button>
+        </div>
     </div>
 </nav>
 
 <body>
+
+    <!--Simple Modal for Login-->
+    <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                    <hr />
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                        <div class="form-horizontal">
+                            <div class="form-group col-md-12">
+                                <label  class="control-label">Email</label>
+                                <input  class="form-control" type="email" id="email" placeholder="Enter Email">
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label >Password</label>
+                                <input  type="password" class="form-control" id="signuppassword" placeholder="Enter password">
+                                <span  class="text-danger"></span>
+                            </div>
+                            <label>
+                                <input id="RememberMe" name="RememberMe" type="checkbox" /> Remember me <br />
+                            </label>
+                            <p style="float:right;"><a href="Account/ForgotPassword">Forgot Password?</a></p><br />
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" value="Log In" class="btn btn-lg btn-primary btn-block" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Log In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="parallex" style="background-image: url('/images/pexels-photo-291732.jpeg');">
         <div style=" line-height:5">
             @for (int i = 0; i < 20; i++)
             {
             <div class="col-xs-12" style="height:10px;"></div>
             }
-            <span id="Typewriter" style="font-family:Garamond;font-size:330%;color:crimson;">&nbsp;&nbsp;&nbsp;Hello!</span>
+            <span id="Typewriter" style="font-family:Garamond;font-size:330%;color:crimson;">&nbsp;&nbsp;&nbsp;</span>
             <!--form class="form-inline">
                 <input class="form-control col-md-5 grow" style="left:350; height:75; bottom:55;font-size:xx-large;" placeholder="Enter your Wnumber" />
                 <button style="position:absolute;" class="btn btn-info"> Register </button>
@@ -78,12 +125,12 @@
                     </form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;<span class="alert alert-warning text-center"> First Time Users must verify their identity using their wnumber before they register</span>
                 </div>
-                <a href="#section2"><span></span>Scroll</a>
             </div>
         </div>
     </div>
 
-    <div class="parallex" style="background-image: url('/images/swoyambhu.jpg');">
+    <!--What we do-->
+    <div class="parallex" id="whatwedo" style="background-image: url('/images/swoyambhu.jpg');">
         <div class="col-sm-5"></div>
         <div class="row" data-aos="fade-right">
             <div class="col-sm-3">
@@ -119,6 +166,8 @@
             </div>
         </div>
     </div>
+
+    <!--About US-->
 </body>
 
 <script>
@@ -126,7 +175,7 @@
         new TypeIt('#Typewriter', {
             speed: 350,
         })
-            .type(' Welcome')
+            .type('Hello! Welcome')
             .pause(1500)
             .delete(8)
             .type(' &#2344;&#2350;&#2360;&#2381;&#2340;&#2375;');
@@ -140,6 +189,20 @@
         AOS.init({
             duration: 1500,
         });
-    });
-    
+
+        $(".scrolldown").click(function () {
+            var where = $(this).data('content');
+            $('html,body').animate({
+                scrollTop: $("#"+ where).offset().top
+            }, 'slow');
+        });
+
+        $(document).scroll(function () {
+            $('.navbar').css({
+                background: $(this).scrollTop() > 250 ? "azure" : "transparent",
+                opacity: $(this).scrollTop() > 250 ? 0.96 : "1",
+                transition: $(this).scrollTop() > 250 ? "2s": "1s",
+             });
+        });
+    });    
 </script>
